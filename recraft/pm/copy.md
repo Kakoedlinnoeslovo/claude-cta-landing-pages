@@ -18,6 +18,11 @@ Section order below mirrors the live page top-to-bottom (desktop; mobile differe
 ## Logo strip
 - Label: "Loved by designers at"
 
+## Upscale (new section, directly under the logo strip)
+- Headline: "TOO SMALL TO PRINT? / UPSCALE IT TO 4K."
+- Body: "Drop in a small image and get a sharp 4K version back in seconds. Headed to print? Export at 300 DPI and CMYK."
+- CTA: "Start for free"
+
 ## What you can make
 - Headline: "WHAT YOU CAN MAKE"
 - Sub: "Every generation comes out art-directed and editable, whether it starts from a prompt or from your own file."

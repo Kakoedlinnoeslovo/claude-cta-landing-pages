@@ -12,18 +12,18 @@ Section order below mirrors the live page top-to-bottom (desktop; mobile header 
 ## Hero carousel (3 slides, in display order)
 
 ### Slide 1
-- Headline: "TASTEFULLY CRAFTED / AI IMAGE MODELS"
-- Sub: "Every generation comes out art-directed, atmospheric, and stylistically alive, because good images aren't just accurate. They're evocative."
+- Headline: "DROP A JPG. / GET AN EDITABLE SVG."
+- Sub: "Upload a blurry logo, icon or illustration and Recraft turns it into clean, editable vector paths in seconds. No file yet? Describe it and generate it as an SVG."
 - CTA: "Start for free"
 
 ### Slide 2
-- Headline: "VECTORS YOU CAN / ACTUALLY EDIT"
-- Sub: "Complex editable paths, consistent styles and design-ready typography, generated from a prompt or from a file you already have."
+- Headline: "TOO SMALL TO PRINT? / UPSCALE IT TO 4K."
+- Sub: "Drop in a small image and get a sharp 4K version back in seconds. Headed to print? Export at 300 DPI and CMYK."
 - CTA: "Start for free"
 
 ### Slide 3
-- Headline: "A BRAND SET / THAT HOLDS TOGETHER"
-- Sub: "Create a style once by dropping in your own images, then generate everything else to match it."
+- Headline: "TASTEFULLY CRAFTED / AI IMAGE MODELS"
+- Sub: "Every generation comes out art-directed, atmospheric, and stylistically alive, because good images aren't just accurate. They're evocative."
 - CTA: "Start for free"
 
 ## Logo strip
@@ -39,8 +39,8 @@ Section order below mirrors the live page top-to-bottom (desktop; mobile header 
 - Caption: "Art direction baked into every scene"
 
 ### Feature 3
-- Headline: "UNMATCHED / VECTOR GENERATION"
-- Caption: "Complex editable vector graphics"
+- Headline: "ICONS, LOGOS & ILLUSTRATIONS / FROM ONE PROMPT"
+- Caption: "Can't find the right icon? Describe it (say, "a planet wearing headphones") and get it back as an editable SVG, sharp at any size."
 
 ### Feature 4
 - Headline: "DESIGN ASSETS / MADE TO IMPRESS"
