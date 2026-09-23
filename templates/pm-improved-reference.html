@@ -1,0 +1,258 @@
+<!doctype html>
+<!-- Showcase: an improved recraft.ai/pm/main/v1 landing page implementing the agent's
+     message-match recommendations R1–R3. Real Recraft assets (blog CDN + YouTube). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recraft — Drop a JPG. Get an editable SVG.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f6f7; --surface:#ffffff; --ink:#111114; --body:#4a4a52; --sub:#77767f;
+    --line:rgba(17,17,20,.10); --line-soft:rgba(17,17,20,.06);
+    --accent:#e5443b; --accent-soft:rgba(229,68,59,.10);
+    --shadow:0 2px 4px rgba(17,17,20,.04),0 12px 40px rgba(17,17,20,.08);
+    --shadow-sm:0 1px 2px rgba(17,17,20,.05),0 4px 14px rgba(17,17,20,.05);
+    --r:22px; --r-sm:14px;
+    --font:'Geist','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+  body{margin:0;font-family:var(--font);background:var(--bg);color:var(--body);
+       font-size:17px;line-height:1.6;letter-spacing:-.01em;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{color:var(--ink);letter-spacing:-.035em;line-height:1.05;margin:0;font-weight:600;}
+  h1{font-size:clamp(40px,6vw,68px);}
+  h2{font-size:clamp(30px,4.2vw,46px);}
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;letter-spacing:.02em;
+           color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:6px 13px;text-transform:none;}
+  .lede{font-size:clamp(17px,1.9vw,20px);color:var(--body);max-width:52ch;}
+  .micro{font-size:13.5px;color:var(--sub);margin-top:14px;}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;font-family:var(--font);
+       font-weight:600;font-size:16px;border:none;border-radius:999px;padding:14px 26px;cursor:pointer;
+       box-shadow:var(--shadow-sm);transition:transform .12s ease,box-shadow .12s ease;}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(17,17,20,.18);}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none;}
+  .btn.arrow::after{content:"→";font-weight:500;}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(246,246,247,.8);backdrop-filter:blur(16px) saturate(1.4);
+         border-bottom:1px solid var(--line-soft);}
+  .nav{display:flex;align-items:center;gap:26px;height:66px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);font-size:19px;letter-spacing:-.03em;}
+  .brand img{width:26px;height:26px;}
+  .nav .links{display:flex;gap:22px;margin-left:14px;}
+  .nav .links a{font-size:15px;color:var(--body);font-weight:500;}
+  .nav .links a:hover{color:var(--ink);}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:16px;}
+  .nav .right a.login{font-size:15px;font-weight:600;color:var(--ink);}
+
+  /* hero */
+  .hero{padding:64px 0 20px;text-align:center;}
+  .hero .eyebrow{margin-bottom:22px;}
+  .hero h1{max-width:16ch;margin:0 auto;}
+  .hero .lede{margin:22px auto 0;text-align:center;}
+  .cta-row{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:30px;flex-wrap:wrap;}
+  .hero-visual{margin:44px auto 0;max-width:960px;border-radius:var(--r);overflow:hidden;
+               box-shadow:var(--shadow);border:1px solid var(--line-soft);background:#fff;position:relative;}
+  .hero-visual img{width:100%;display:block;}
+  .hero-visual .badge{position:absolute;left:18px;top:18px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+                      border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--ink);
+                      box-shadow:var(--shadow-sm);display:flex;gap:8px;align-items:center;}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
+
+  /* value strip */
+  .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:56px 0;}
+  .strip .cell{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);
+               padding:22px 22px;box-shadow:var(--shadow-sm);}
+  .strip .cell b{color:var(--ink);font-weight:600;display:block;font-size:17px;margin-bottom:3px;letter-spacing:-.02em;}
+  .strip .cell span{font-size:14.5px;color:var(--sub);}
+
+  /* feature rows */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0;}
+  .feature.flip .copy{order:2;}
+  .feature .copy .eyebrow{margin-bottom:18px;}
+  .feature .copy h2{margin-bottom:16px;}
+  .feature .copy p{margin:0 0 18px;font-size:17px;}
+  .feature ul{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .feature ul li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;color:var(--body);}
+  .feature ul li::before{content:"";flex:none;width:20px;height:20px;border-radius:6px;margin-top:1px;
+                         background:var(--accent-soft);
+                         background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23e5443b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+                         background-repeat:no-repeat;background-position:center;}
+  .shot{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line-soft);background:#fff;}
+  .shot img{width:100%;display:block;}
+
+  /* prompt box (R3) */
+  .prompt{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+          display:flex;align-items:center;gap:12px;box-shadow:var(--shadow-sm);max-width:420px;margin-bottom:22px;}
+  .prompt .tag{font-size:12px;color:var(--sub);font-weight:600;background:var(--bg);border:1px solid var(--line-soft);
+               border-radius:7px;padding:3px 8px;}
+  .prompt .txt{font-size:15px;color:var(--ink);}
+  .prompt .go{margin-left:auto;width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;
+              display:grid;place-items:center;font-size:15px;}
+
+  /* video */
+  .video-sec{padding:48px 0;text-align:center;}
+  .video-sec h2{margin-bottom:12px;}
+  .video-sec p{color:var(--sub);margin:0 auto 30px;max-width:46ch;}
+  .video-frame{position:relative;max-width:920px;margin:0 auto;border-radius:var(--r);overflow:hidden;
+               box-shadow:var(--shadow);border:1px solid var(--line-soft);aspect-ratio:16/9;background:#000;}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-frame.lite{cursor:pointer;background-size:cover;background-position:center;}
+  .video-frame.lite::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.35));}
+  .video-frame .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;
+                     background:rgba(17,17,20,.55);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.35);
+                     display:grid;place-items:center;transition:background .15s ease,transform .15s ease;}
+  .video-frame.lite:hover .play{background:var(--accent);transform:translate(-50%,-50%) scale(1.06);}
+  .video-frame .play::after{content:"";border-left:24px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px;}
+
+  /* final cta */
+  .final{background:var(--ink);border-radius:28px;color:#fff;text-align:center;padding:64px 24px;margin:40px 0 64px;}
+  .final h2{color:#fff;margin-bottom:14px;}
+  .final p{color:rgba(255,255,255,.66);margin:0 auto 28px;max-width:40ch;font-size:17px;}
+  .final .btn{background:#fff;color:var(--ink);}
+  .final .micro{color:rgba(255,255,255,.5);}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--sub);font-size:14px;
+         display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+
+  /* demo annotation */
+  .demo-note{background:#fff;border:1px dashed var(--line);border-radius:var(--r-sm);padding:20px 22px;margin:0 0 48px;box-shadow:var(--shadow-sm);}
+  .demo-note h3{font-size:14px;color:var(--sub);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin:0 0 14px;}
+  .demo-note table{width:100%;border-collapse:collapse;font-size:14px;}
+  .demo-note th{text-align:left;color:var(--sub);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:0 12px 8px 0;}
+  .demo-note td{padding:8px 12px 8px 0;border-top:1px solid var(--line-soft);vertical-align:top;color:var(--body);}
+  .demo-note td b{color:var(--ink);}
+  .rpill{font-weight:700;color:var(--accent);}
+
+  @media(max-width:820px){
+    body{font-size:16px;}
+    .nav .links{display:none;}
+    .strip{grid-template-columns:1fr;}
+    .feature{grid-template-columns:1fr;gap:28px;padding:44px 0;}
+    .feature.flip .copy{order:0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><img src="https://cdn.prod.website-files.com/655727fe69827d9a402de12c/6a0dafb5b8eead82b93ff59f_sign%2040x40%20(1).svg" alt="Recraft">Recraft</a>
+    <div class="links"><a href="#">Product</a><a href="#">Vectorize</a><a href="#">Pricing</a><a href="https://www.recraft.ai/blog">Blog</a></div>
+    <div class="right"><a class="login" href="#">Log in</a><a class="btn" href="#">Start for free</a></div>
+  </div>
+</header>
+
+<!-- HERO — R2: lead with the JPG→SVG promise (3 of 4 running ad concepts are vector) -->
+<section class="hero wrap">
+  <span class="eyebrow"><span class="dot"></span>AI vectorizer</span>
+  <h1>Drop a JPG.<br>Get an editable SVG.</h1>
+  <p class="lede">Upload a logo, icon, lettering or illustration — or describe one — and Recraft vectorizes it in seconds. Edit every path and colour, right in the browser.</p>
+  <div class="cta-row">
+    <a class="btn arrow" href="#">Start for free</a>
+    <a class="btn ghost" href="#video">Watch it work</a>
+  </div>
+  <p class="micro">Free to use. No credit card required. Works on any device.</p>
+  <div class="hero-visual">
+    <span class="badge"><span class="dot"></span>JPG → editable SVG</span>
+    <img src="https://cdn.prod.website-files.com/655741af3f04e006606d26ad/6aa948839fd1f79ca0bbf3ce_2027946712-p-1600.webp" alt="Recraft vector output" loading="eager">
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="strip">
+    <div class="cell"><b>Vectorize in seconds</b><span>Raster logo or illustration in, clean editable vector out.</span></div>
+    <div class="cell"><b>Print-ready at 4K</b><span>Export at 300 DPI and CMYK for posters, merch and packaging.</span></div>
+    <div class="cell"><b>Icons from a prompt</b><span>Describe the icon you can't find and get an editable SVG.</span></div>
+  </div>
+</div>
+
+<!-- R1: the upscale-to-4K / print promise the page currently drops (8 running ads) -->
+<section class="feature flip wrap">
+  <div class="copy">
+    <span class="eyebrow"><span class="dot"></span>Upscale &amp; print</span>
+    <h2>Too small to print?<br>Upscale it to 4K.</h2>
+    <p>Got a small image that has to go to print? Upscale it to 4K without softening the detail — then send it straight to production.</p>
+    <ul>
+      <li>Push images up to 4K resolution, sharp enough for large format</li>
+      <li>Export at 300 DPI and CMYK for posters, merch and packaging</li>
+      <li>No re-shoot, no redraw — start from the file you already have</li>
+    </ul>
+    <a class="btn arrow" href="#">Upscale an image free</a>
+  </div>
+  <div class="shot"><img src="https://cdn.prod.website-files.com/655741af3f04e006606d26ad/6a972887c25b36b8b4c94925_3-posters--side-by-side--posters-should-be-abstrac-p-1600.webp" alt="Posters printed from upscaled Recraft images" loading="lazy"></div>
+</section>
+
+<!-- R3: icons, logos & illustrations from one prompt -->
+<section class="feature wrap">
+  <div class="copy">
+    <span class="eyebrow"><span class="dot"></span>Icons &amp; brand assets</span>
+    <h2>Icons, logos &amp; illustrations — from one prompt.</h2>
+    <p>Can't find the right icon? Describe it and get it back as an editable SVG that stays sharp at any size — matched to the rest of your set.</p>
+    <div class="prompt">
+      <span class="tag">Prompt</span>
+      <span class="txt">planet wearing headphones</span>
+      <span class="go">→</span>
+    </div>
+    <ul>
+      <li>Illustrations, icons, logos and vectors — all from one prompt</li>
+      <li>Editable SVG output, sharp at any size</li>
+      <li>Keep one consistent style across a whole set</li>
+    </ul>
+    <a class="btn arrow" href="#">Generate an icon free</a>
+  </div>
+  <div class="shot"><img src="https://cdn.prod.website-files.com/655741af3f04e006606d26ad/6a9713ca587d4d12a5980256_a-full-brand-identity--bird-s-eye-view--like-a-bar%20(2)-p-1600.webp" alt="A full brand identity generated in Recraft" loading="lazy"></div>
+</section>
+
+<!-- Real Recraft video -->
+<section class="video-sec wrap" id="video">
+  <h2>See it in motion</h2>
+  <p>Recraft V4.1 Flash — the fastest model on the market, straight from the team.</p>
+  <div class="video-frame lite" id="vf" role="button" aria-label="Play: Recraft V4.1 Flash"
+       style="background-image:url('https://i.ytimg.com/vi/VRmnSYgedjE/hqdefault.jpg')">
+    <div class="play"></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="final">
+    <h2>Start creating for free</h2>
+    <p>Vectorize, upscale and generate — bring the promise from the ad all the way to the page.</p>
+    <a class="btn" href="#">Start for free</a>
+    <p class="micro">Free to use. No credit card required. Works on any device.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <!-- demo-only annotation: how this page maps back to the running ads -->
+  <div class="demo-note">
+    <h3>◆ Message-match notes (demo overlay — not part of the page)</h3>
+    <table>
+      <tr><th>Section</th><th>Continues which running ad</th><th>Rec</th></tr>
+      <tr><td><b>Hero — "Drop a JPG. Get an editable SVG."</b></td><td>The JPG→SVG concept (12 ads) + one-prompt + icon ads — 3 of your 4 running concepts are vector, and most land here</td><td class="rpill">R2</td></tr>
+      <tr><td><b>"Too small to print? Upscale it to 4K."</b></td><td>The Upscale-to-4K concept (8 ads) — the biggest gap; the page said nothing about upscale/4K/print before</td><td class="rpill">R1</td></tr>
+      <tr><td><b>"Icons, logos &amp; illustrations from one prompt"</b></td><td>The "describe an icon" ad (D) + one-prompt ad (C) — the words icon/logo/SVG appeared nowhere before</td><td class="rpill">R3</td></tr>
+    </table>
+  </div>
+</div>
+
+<footer class="wrap">
+  <span>© Recraft — improved /pm concept</span>
+  <span>Assets: recraft.ai/blog · youtube.com/@Recraftai</span>
+</footer>
+
+<script>
+  document.getElementById('vf').addEventListener('click', function(){
+    this.classList.remove('lite');
+    this.style.backgroundImage='none';
+    this.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/VRmnSYgedjE?autoplay=1&rel=0" title="Recraft V4.1 Flash" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+  });
+</script>
+</body>
+</html>
