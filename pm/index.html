@@ -1,0 +1,340 @@
+<!doctype html>
+<!-- recraft.ai/pm — improved paid landing page (cta-scout, PR "pm-dual-promise-hero").
+     Route: https://recraft.ai/pm/  — receives BOTH running Meta concepts:
+       A "Upscale any image to 4K"            (5 active ad IDs link to /pm)
+       B "Drop a JPG. Get an editable SVG."   (4 active ad IDs link to /pm)
+     Implements R4 (dual-promise hero), R5 (upscale proof directly under hero), R6 (SVG demo in motion).
+     House style: templates/pm-improved-reference.html (Geist, #f6f6f7, ink #111, black pill CTAs).
+     Assets: recraft.ai/blog imagery + recraft.ai CDN logos + youtube.com/@Recraftai (youtube-nocookie embeds).
+     Pricing table is a contract: intentionally NOT reproduced or edited here. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recraft — Turn a JPG into an editable SVG, or upscale any image to 4K</title>
+<meta name="description" content="Blurry logo? Turn any JPG or PNG into an editable SVG in seconds. Too small to print? Upscale it to 4K and export at 300 DPI and CMYK. Free to use. No credit card required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f6f7; --surface:#ffffff; --ink:#111111; --body:#4a4a52; --sub:#77767f;
+    --line:rgba(17,17,17,.10); --line-soft:rgba(17,17,17,.06);
+    --accent:#e5443b; --accent-soft:rgba(229,68,59,.10);
+    --shadow:0 2px 4px rgba(17,17,17,.04),0 12px 40px rgba(17,17,17,.08);
+    --shadow-sm:0 1px 2px rgba(17,17,17,.05),0 4px 14px rgba(17,17,17,.05);
+    --r:22px; --r-sm:14px;
+    --font:'Geist','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+  body{margin:0;font-family:var(--font);background:var(--bg);color:var(--body);font-size:17px;line-height:1.6;letter-spacing:-.01em;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{color:var(--ink);letter-spacing:-.035em;line-height:1.05;margin:0;font-weight:600;}
+  h2{font-size:clamp(30px,4.2vw,46px);}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:6px 13px;}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;}
+  .micro{font-size:13.5px;color:var(--sub);margin:14px 0 0;}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;font-family:var(--font);font-weight:600;font-size:16px;border:none;border-radius:999px;padding:14px 26px;cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .12s ease,box-shadow .12s ease;white-space:nowrap;}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(17,17,17,.18);}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none;}
+  .btn.arrow::after{content:"→";font-weight:500;}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(246,246,247,.82);backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--line-soft);}
+  .nav{display:flex;align-items:center;gap:26px;height:66px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);font-size:19px;letter-spacing:-.03em;}
+  .brand img{width:26px;height:26px;}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:16px;}
+  .nav .right a.login{font-size:15px;font-weight:600;color:var(--ink);}
+
+  /* R4 — dual-promise hero */
+  .hero{padding:44px 0 8px;}
+  .hero-intro{text-align:center;margin-bottom:26px;}
+  .hero-intro p{margin:12px auto 0;color:var(--sub);font-size:16px;max-width:60ch;}
+  .promises{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .promise{min-width:0;background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;}
+  .promise .copy{min-width:0;padding:30px 30px 24px;display:flex;flex-direction:column;gap:14px;flex:1;}
+  .promise .ask{font-size:15px;font-weight:600;color:var(--accent);}
+  .promise h2{font-size:clamp(30px,3.5vw,44px);text-transform:uppercase;letter-spacing:-.03em;}
+  .promise p{margin:0;font-size:16px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 4px;padding:0;list-style:none;}
+  .chips li{font-size:13px;font-weight:600;color:var(--ink);background:var(--bg);border:1px solid var(--line-soft);border-radius:999px;padding:5px 11px;}
+  .promise .cta{margin-top:auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .promise .cta a.more{font-size:14.5px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--line);}
+  .promise .visual{aspect-ratio:16/8.5;background:#eee;overflow:hidden;border-top:1px solid var(--line-soft);position:relative;}
+  .promise .visual img{width:100%;height:100%;object-fit:cover;display:block;}
+  .promise .visual .badge{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.93);backdrop-filter:blur(6px);border-radius:999px;padding:6px 13px;font-size:13px;font-weight:600;color:var(--ink);box-shadow:var(--shadow-sm);display:flex;gap:8px;align-items:center;}
+  .hero-micro{text-align:center;}
+
+  /* logos */
+  .logos{padding:40px 0 8px;text-align:center;}
+  .logos .label{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);}
+  .logos .row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:34px;margin-top:18px;opacity:.75;}
+  .logos .row img{height:24px;width:auto;filter:grayscale(1);}
+
+  /* feature rows */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0;}
+  .feature.flip .copy{order:2;}
+  .feature .copy .eyebrow{margin-bottom:18px;}
+  .feature .copy h2{margin-bottom:16px;text-transform:uppercase;}
+  .feature .copy p{margin:0 0 18px;}
+  .shot{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line-soft);background:#fff;}
+  .shot img{width:100%;display:block;}
+  .steps{list-style:none;margin:0 0 24px;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:s;}
+  .steps li{display:flex;gap:14px;align-items:flex-start;font-size:15.5px;}
+  .steps li::before{counter-increment:s;content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-weight:600;font-size:14px;display:grid;place-items:center;margin-top:-1px;}
+  .steps li b{color:var(--ink);font-weight:600;}
+  .src{font-size:12.5px;color:var(--sub);margin-top:14px;}
+  .src a{border-bottom:1px solid var(--line);}
+
+  /* video */
+  .video-frame{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line-soft);aspect-ratio:16/9;background:#000;}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-frame.lite{cursor:pointer;background-size:cover;background-position:center;}
+  .video-frame.lite::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.35));}
+  .video-frame .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:rgba(17,17,17,.6);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;transition:background .15s ease,transform .15s ease;}
+  .video-frame.lite:hover .play{background:var(--accent);transform:translate(-50%,-50%) scale(1.06);}
+  .video-frame .play::after{content:"";border-left:22px solid #fff;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px;}
+  .video-frame .cap{position:absolute;left:14px;bottom:14px;right:14px;color:#fff;font-size:14px;font-weight:600;text-shadow:0 1px 6px rgba(0,0,0,.5);}
+
+  /* kept sections */
+  .kept{padding:56px 0;text-align:center;}
+  .kept h2{text-transform:uppercase;margin-bottom:14px;}
+  .kept p{max-width:58ch;margin:0 auto 24px;}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:24px 0 56px;}
+  .quote{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:24px;box-shadow:var(--shadow-sm);}
+  .quote p{margin:0 0 16px;color:var(--ink);font-size:16px;}
+  .quote b{display:block;color:var(--ink);font-size:14.5px;}
+  .quote span{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);}
+  .contract{border:1px dashed var(--line);border-radius:var(--r-sm);padding:22px;text-align:center;color:var(--sub);font-size:14.5px;background:rgba(255,255,255,.5);}
+  .contract b{color:var(--ink);}
+
+  /* final cta */
+  .final{background:var(--ink);border-radius:28px;color:#fff;text-align:center;padding:64px 24px;margin:48px 0 56px;}
+  .final h2{color:#fff;margin-bottom:14px;}
+  .final p{color:rgba(255,255,255,.66);margin:0 auto 28px;max-width:44ch;}
+  .final .btn{background:#fff;color:var(--ink);}
+  .final .micro{color:rgba(255,255,255,.5);}
+
+  /* demo annotation */
+  .demo-note{background:#fff;border:1px dashed var(--line);border-radius:var(--r-sm);padding:20px 22px;margin:0 0 48px;box-shadow:var(--shadow-sm);}
+  .demo-note h3{font-size:14px;color:var(--sub);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin:0 0 14px;}
+  .demo-note table{width:100%;border-collapse:collapse;font-size:14px;}
+  .demo-note th{text-align:left;color:var(--sub);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:0 12px 8px 0;}
+  .demo-note td{padding:8px 12px 8px 0;border-top:1px solid var(--line-soft);vertical-align:top;}
+  .demo-note td b{color:var(--ink);}
+  .demo-note a{border-bottom:1px solid var(--line);}
+  .rpill{font-weight:700;color:var(--accent);white-space:nowrap;}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--sub);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+
+  @media(max-width:860px){
+    body{font-size:16px;}
+    .hero{padding:22px 0 4px;}
+    .hero-intro{margin-bottom:14px;}
+    .hero-intro p{display:none;}
+    .promises{grid-template-columns:1fr;gap:12px;}
+    /* mobile: keep BOTH promises inside the first screens — compact cards, visuals as thumbnails */
+    .promise{flex-direction:row;align-items:stretch;}
+    .promise .copy{padding:18px 16px;gap:8px;}
+    .promise h2{font-size:24px;}
+    .promise p.long{display:none;}
+    .promise .visual{flex:0 0 34%;aspect-ratio:auto;border-top:0;border-left:1px solid var(--line-soft);}
+    .promise .visual .badge{display:none;}
+    .promise .cta .btn{padding:11px 18px;font-size:15px;}
+    .wrap{padding:0 16px;}
+    .nav .right .btn{padding:10px 18px;font-size:15px;}
+    .promise .visual{flex:0 0 30%;}
+    .promise .cta a.more{display:none;}
+    .chips li{font-size:12px;padding:4px 9px;}
+    .feature{grid-template-columns:1fr;gap:26px;padding:44px 0;}
+    .feature.flip .copy{order:0;}
+    .quotes{grid-template-columns:1fr;}
+    .logos .row{gap:22px;}
+    .logos .row img{height:18px;}
+    .logos{padding-top:28px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="https://www.recraft.ai/"><img src="https://cdn.prod.website-files.com/655727fe69827d9a402de12c/6a0dafb5b8eead82b93ff59f_sign%2040x40%20(1).svg" alt="">Recraft</a>
+    <div class="right"><a class="login" href="https://www.recraft.ai/auth/login">Log in</a><a class="btn" href="https://www.recraft.ai/auth/login">Start for free</a></div>
+  </div>
+</header>
+
+<!-- ========== R4: DUAL-PROMISE HERO ==========
+     Both running ad concepts link to /pm. Each card repeats its ad's headline/hook near-verbatim,
+     so whichever ad delivered the visitor, their promise is the first thing they read. -->
+<section class="hero wrap" aria-labelledby="h1">
+  <div class="hero-intro">
+    <span class="eyebrow"><span class="dot"></span>Fix the file you already have</span>
+    <h1 id="h1" class="sr-only">Recraft: turn a JPG into an editable SVG, or upscale any image to 4K</h1>
+    <p>Two jobs, one free Recraft account. Pick the one you came for.</p>
+  </div>
+
+  <div class="promises">
+    <!-- Card 1 continues concept B (JPG→SVG). Ad hook: "Blurry logo? Turn any JPG or PNG into an editable SVG in seconds." -->
+    <article class="promise" id="svg">
+      <div class="copy">
+        <span class="ask">Blurry logo?</span>
+        <h2>Drop a JPG.<br>Get an editable SVG.</h2>
+        <p class="long">Upload a logo, icon, lettering or illustration. Recraft vectorizes it in seconds and lets you edit every path and colour in the browser.</p>
+        <ul class="chips"><li>JPG, PNG, WebP in</li><li>SVG out</li><li>Every path editable</li></ul>
+        <div class="cta"><a class="btn arrow" href="https://www.recraft.ai/auth/login">Start for free</a><a class="more" href="#svg-demo">Watch it vectorize</a></div>
+      </div>
+      <div class="visual">
+        <img src="https://cdn.prod.website-files.com/655741af3f04e006606d26ad/6a43ef49712c240c7c666097_pic.png" alt="An illustration split in half: flat colour on the left, its editable vector paths and anchor points on the right" loading="eager">
+        <span class="badge"><span class="dot"></span>JPG → editable SVG</span>
+      </div>
+    </article>
+
+    <!-- Card 2 continues concept A (Upscale 4K). Ad hook: "Got a small image and need it print-ready? Upscale it to 4K in Recraft." -->
+    <article class="promise" id="upscale">
+      <div class="copy">
+        <span class="ask">Too small to print?</span>
+        <h2>Upscale any image<br>to 4K.</h2>
+        <p class="long">Drop in a small image and get a sharp 4K version back in seconds. Headed to print? Export at 300 DPI and CMYK.</p>
+        <ul class="chips"><li>Up to 4K</li><li>300 DPI</li><li>CMYK</li></ul>
+        <div class="cta"><a class="btn arrow" href="https://www.recraft.ai/auth/login">Start for free</a><a class="more" href="#upscale-proof">See before &amp; after</a></div>
+      </div>
+      <div class="visual">
+        <img src="https://cdn.prod.website-files.com/655741af3f04e006606d26ad/6724e10b46d8e9bb2a7728bc_6.webp" alt="A small food-truck illustration upscaled into a large, sharp version" loading="eager">
+        <span class="badge"><span class="dot"></span>Small image → 4K</span>
+      </div>
+    </article>
+  </div>
+  <p class="micro hero-micro">Free to use. No credit card required. Works on any device.</p>
+</section>
+
+<!-- Logo strip (kept; label unchanged from live /pm) -->
+<section class="logos wrap">
+  <div class="label">Loved by designers at</div>
+  <div class="row">
+    <img src="https://cdn.prod.website-files.com/655727fe69827d9a402de12c/688887d5cde7a2fd7cf58d50_company%3Dasana-logo.svg" alt="Asana">
+    <img src="https://cdn.prod.website-files.com/655727fe69827d9a402de12c/688887d56dda7159a0a38273_company%3Dhubspot-logo.svg" alt="HubSpot">
+    <img src="https://cdn.prod.website-files.com/655727fe69827d9a402de12c/688887d5a4fcafef836a49d6_company%3Dogilvy-logo.svg" alt="Ogilvy">
+    <img src="https://cdn.prod.website-files.com/655727fe69827d9a402de12c/688887d50ecf1b33a92f3a41_company%3Dairbus-logo.svg" alt="Airbus">
+    <img src="https://cdn.prod.website-files.com/655727fe69827d9a402de12c/68888e9da370406afd1fa093_company-netflix.svg" alt="Netflix">
+    <img src="https://cdn.prod.website-files.com/655727fe69827d9a402de12c/690b939b32be26e9a93b1766_microsoft.svg" alt="Microsoft">
+  </div>
+</section>
+
+<!-- ========== R5: UPSCALE PROOF, DIRECTLY UNDER THE HERO ==========
+     Headline/body = the copy already merged in PR #1 (unchanged). New here: the before/after visual,
+     the 3-step how-to and the video — all taken from Recraft's own /image-upscaler page and @Recraftai. -->
+<section class="feature wrap" id="upscale-proof">
+  <div class="copy">
+    <span class="eyebrow"><span class="dot"></span>Upscale &amp; print</span>
+    <h2>Too small to print?<br>Upscale it to 4K.</h2>
+    <p>Drop in a small image and get a sharp 4K version back in seconds. Headed to print? Export at 300 DPI and CMYK.</p>
+    <ol class="steps">
+      <li><span><b>Upload an image.</b> Drag and drop a JPG, PNG or WebP.</span></li>
+      <li><span><b>Click Upscale.</b> Resolution goes up to 4K while the detail stays sharp.</span></li>
+      <li><span><b>Export and use.</b> Download as PNG, JPG, TIFF or PDF, at 300 DPI and CMYK for print.</span></li>
+    </ol>
+    <a class="btn arrow" href="https://www.recraft.ai/auth/login">Start for free</a>
+    <p class="micro">Free to use. No credit card required.</p>
+    <p class="src">Claims as stated on Recraft's <a href="https://www.recraft.ai/image-upscaler">Image upscaler</a> and <a href="https://www.recraft.ai/features/dpi">Custom DPI and CMYK</a> pages.</p>
+  </div>
+  <div>
+    <div class="video-frame lite" data-yt="4lx2_7mz0Tk" data-title="How to upscale an image with Recraft" role="button" tabindex="0" aria-label="Play video: How to upscale an image with Recraft" style="background-image:url('https://i.ytimg.com/vi/4lx2_7mz0Tk/hqdefault.jpg')">
+      <div class="play"></div><div class="cap">How to upscale an image with Recraft</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== R6: SVG DEMO IN MOTION ==========
+     Concept B runs as a video demo (UGC creator vectorizing a T-shirt logo). The live /pm has no motion proof;
+     this shows the same job happening, using Recraft's own tutorial. -->
+<section class="feature flip wrap" id="svg-demo">
+  <div class="copy">
+    <span class="eyebrow"><span class="dot"></span>JPG → SVG</span>
+    <h2>Watch a JPG become<br>an editable SVG.</h2>
+    <p>Blurry logo? Upload it and Recraft turns it into clean vector paths in seconds. Recolour it, simplify it, then export a file that stays sharp at any size.</p>
+    <ol class="steps">
+      <li><span><b>Upload your image.</b> Drag a JPG, PNG or WebP onto the canvas.</span></li>
+      <li><span><b>Click Vectorize.</b> Get your SVG in seconds.</span></li>
+      <li><span><b>Edit and download.</b> Adjust colours and paths, then export as SVG.</span></li>
+    </ol>
+    <a class="btn arrow" href="https://www.recraft.ai/auth/login">Start for free</a>
+    <p class="micro">Free to use. No credit card required.</p>
+    <p class="src">Steps as described on Recraft's <a href="https://www.recraft.ai/ai-image-vectorizer">SVG converter</a> page.</p>
+  </div>
+  <div>
+    <div class="video-frame lite" data-yt="k-rzbQvduzo" data-title="Convert Any Image to Vector in Seconds with Recraft" role="button" tabindex="0" aria-label="Play video: Convert any image to vector in seconds with Recraft" style="background-image:url('https://i.ytimg.com/vi/k-rzbQvduzo/hqdefault.jpg')">
+      <div class="play"></div><div class="cap">Convert any image to vector in seconds</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Sections below are KEPT from the live /pm page, copy unchanged ===== -->
+<section class="kept wrap">
+  <h2>Consistent styles<br>without training</h2>
+  <p>Creating a custom style is as easy as dropping in your images. Recraft instantly turns them into a reusable, editable style.</p>
+  <a class="btn" href="https://www.recraft.ai/auth/login">Start for free</a>
+</section>
+
+<section class="wrap quotes" aria-label="Testimonials">
+  <div class="quote"><p>“Unlike some other image generators like Midjourney, Recraft is highly customizable.”</p><b>Ivan Korzun</b><span>Design Director at Playgama</span></div>
+  <div class="quote"><p>“It can generate images directly in vector format. Other AI tools don’t offer this option.”</p><b>Vincent</b><span>Embroidery Designer</span></div>
+  <div class="quote"><p>“What Recraft was able to generate, I said, ‘Wow’ — I think it's one of the reasons I decided to subscribe.”</p><b>Sebastien T.</b><span>Graphic Designer</span></div>
+</section>
+
+<section class="kept wrap">
+  <h2>Try it in Recraft</h2>
+  <p>The creator’s platform for generating and editing images, vectors, and mockups with Recraft’s models and other top frontier models.</p>
+  <a class="btn" href="https://www.recraft.ai/auth/login">Start for free</a>
+  <p class="micro">Free to use. No credit card required.</p>
+</section>
+
+<!-- PRICING: contract, not copy. The live Free / Pro / Teams table stays exactly where it is on /pm. Not reproduced, not edited. -->
+<div class="wrap">
+  <div class="contract"><b>Pricing table — unchanged.</b> The live /pm “Plans for every kind of creator” table (Free / Pro / Teams) sits here exactly as it does today. This PR doesn't reproduce or edit it.</div>
+</div>
+
+<section class="wrap">
+  <div class="final">
+    <h2>Ready to start creating?</h2>
+    <p>Upload your file or start from a prompt. It takes seconds.</p>
+    <a class="btn" href="https://www.recraft.ai/auth/login">Start for free</a>
+    <p class="micro">Free to use. No credit card required.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="demo-note">
+    <h3>◆ Message-match notes (review overlay, not part of the shipped page)</h3>
+    <table>
+      <tr><th>Section</th><th>Continues which running ad</th><th>Rec</th></tr>
+      <tr><td><b>Hero card “Upscale any image to 4K.”</b></td><td>Concept A, <a href="https://www.facebook.com/ads/library/?id=1351920020096015">1351920020096015</a> (+4 more IDs → /pm). “Got a small image and need it print-ready? Upscale it to 4K.” Live /pm shows only the SVG hero above the fold.</td><td class="rpill">R4</td></tr>
+      <tr><td><b>Hero card “Drop a JPG. Get an editable SVG.”</b></td><td>Concept B, <a href="https://www.facebook.com/ads/library/?id=2119007955355311">2119007955355311</a> (+3 more IDs → /pm). Kept word for word, so the existing full match stays.</td><td class="rpill">R4</td></tr>
+      <tr><td><b>Upscale proof + steps + video</b></td><td>Concept A: backs up “print-ready” and “4K” with a before/after, Recraft's own 3 steps and 300 DPI / CMYK export</td><td class="rpill">R5</td></tr>
+      <tr><td><b>“Watch a JPG become an editable SVG” + video</b></td><td>Concept B's video creative (<a href="https://www.facebook.com/ads/library/?id=2119007955355311">2119007955355311</a>) shows the conversion happening; the page now shows it too</td><td class="rpill">R6</td></tr>
+    </table>
+  </div>
+</div>
+
+<footer class="wrap">
+  <span>© Recraft · improved /pm concept (cta-scout)</span>
+  <span>Assets: recraft.ai/blog · recraft.ai · youtube.com/@Recraftai</span>
+</footer>
+
+<script>
+  document.querySelectorAll('.video-frame.lite').forEach(function(el){
+    function play(){
+      if(!el.classList.contains('lite')) return;
+      el.classList.remove('lite'); el.style.backgroundImage='none';
+      el.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+el.dataset.yt+'?autoplay=1&rel=0" title="'+el.dataset.title+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    }
+    el.addEventListener('click',play);
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();play();} });
+  });
+</script>
+</body>
+</html>
