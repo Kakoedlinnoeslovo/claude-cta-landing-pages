@@ -9,19 +9,42 @@ Section order below mirrors the live page top-to-bottom (desktop; mobile differe
 ## Header
 - CTA button: "Start for free"
 
-## Hero
-- Headline: "DROP A JPG. / GET AN EDITABLE SVG."
-- Sub: "Upload a logo, icon, lettering or illustration. Recraft vectorizes it in seconds and lets you edit every path and colour in the browser."
-- CTA: "Start for free"
-- Microcopy: "Free to use. No credit card required. Works on any device."
+## Hero (dual-promise — R4; one card per running ad concept that links to /pm)
+- Eyebrow: "Fix the file you already have"
+- Intro (desktop only): "Two jobs, one free Recraft account. Pick the one you came for."
+- Card 1 (continues "Drop a JPG. Get an editable SVG." ads)
+  - Kicker: "Blurry logo?"
+  - Headline: "DROP A JPG. / GET AN EDITABLE SVG."
+  - Sub: "Upload a logo, icon, lettering or illustration. Recraft vectorizes it in seconds and lets you edit every path and colour in the browser."
+  - Chips: "JPG, PNG, WebP in" / "SVG out" / "Every path editable"
+  - CTA: "Start for free" · link "Watch it vectorize"
+- Card 2 (continues "Upscale any image to 4K" ads)
+  - Kicker: "Too small to print?"
+  - Headline: "UPSCALE ANY IMAGE / TO 4K."
+  - Sub: "Drop in a small image and get a sharp 4K version back in seconds. Headed to print? Export at 300 DPI and CMYK."
+  - Chips: "Up to 4K" / "300 DPI" / "CMYK"
+  - CTA: "Start for free" · link "See before & after"
+- Microcopy (under both cards): "Free to use. No credit card required. Works on any device."
+- Mobile: both cards stacked and compact (sub hidden, image as side thumbnail) so both headlines sit in the first screen.
 
 ## Logo strip
 - Label: "Loved by designers at"
 
-## Upscale (new section, directly under the logo strip)
+## Upscale proof (R5 — same slot PR #1 gave it, directly under the logo strip; PR #1 headline/body unchanged, proof added)
+- Eyebrow: "Upscale & print"
 - Headline: "TOO SMALL TO PRINT? / UPSCALE IT TO 4K."
 - Body: "Drop in a small image and get a sharp 4K version back in seconds. Headed to print? Export at 300 DPI and CMYK."
-- CTA: "Start for free"
+- Steps (from recraft.ai/image-upscaler): 1 "Upload an image. Drag and drop a JPG, PNG or WebP." 2 "Click Upscale. Resolution goes up to 4K while the detail stays sharp." 3 "Export and use. Download as PNG, JPG, TIFF or PDF, at 300 DPI and CMYK for print."
+- Video: youtube-nocookie embed 4lx2_7mz0Tk "How to upscale an image with Recraft" (@Recraftai)
+- CTA: "Start for free" · Microcopy: "Free to use. No credit card required."
+
+## SVG demo (R6 — new)
+- Eyebrow: "JPG → SVG"
+- Headline: "WATCH A JPG BECOME / AN EDITABLE SVG."
+- Body: "Blurry logo? Upload it and Recraft turns it into clean vector paths in seconds. Recolour it, simplify it, then export a file that stays sharp at any size."
+- Steps (from recraft.ai/ai-image-vectorizer): 1 "Upload your image." 2 "Click Vectorize. Get your SVG in seconds." 3 "Edit and download. Adjust colours and paths, then export as SVG."
+- Video: youtube-nocookie embed k-rzbQvduzo "Convert Any Image to Vector in Seconds with Recraft" (@Recraftai)
+- CTA: "Start for free" · Microcopy: "Free to use. No credit card required."
 
 ## What you can make
 - Headline: "WHAT YOU CAN MAKE"
