@@ -1,6 +1,6 @@
 # Recraft CTA message-match brief (cta-scout, today's run)
 
-**PR opened this run:** PR_URL_PLACEHOLDER (branch `cta-scout/pm-dual-promise-hero`, **not merged**. A human needs to review and merge it.)
+**PR opened this run:** https://github.com/Kakoedlinnoeslovo/claude-cta-landing-pages/pull/3 (branch `cta-scout/pm-dual-promise-hero`, **not merged**. A human needs to review and merge it.)
 **Deliverable in the PR:** `pm/index.html`, a built, self-contained page for **https://recraft.ai/pm/**, the route that 9 of today's 14 active ad IDs link to. It uses the house style from `templates/pm-improved-reference.html`, real recraft.ai/blog images and two youtube-nocookie embeds from @Recraftai. `recraft/pm/copy.md` is updated to match the page.
 
 ## What changed since the last run
