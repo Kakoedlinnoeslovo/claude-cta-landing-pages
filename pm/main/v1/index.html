@@ -1,0 +1,316 @@
+<!doctype html>
+<!-- Built page for https://www.recraft.ai/pm/main/v1 — cta-scout PR "brand-and-character-match" (R7–R9).
+     As of this run, 14 running Meta ads link here: 10 are the NEW concepts
+       E  "Bloom" brand campaign (5 IDs) and F "GENERATE PERFECT CHARACTER" (5 IDs),
+     plus A "Upscale any image to 4K" (1 ID) and B "Drop a JPG. Get an editable SVG." (3 IDs).
+     Live hero carousel: "Tastefully crafted AI image models" / "Vectors you can actually edit" / "A brand set that holds together".
+     A and B stay continued directly under the hero (copy from merged PR #1).
+     Assets: recraft.ai/blog CDN images + youtube.com/@Recraftai (youtube-nocookie embeds). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recraft: from logo to launch, or the perfect character, from one idea</title>
+<meta name="description" content="Build a brand from logo to launch, or generate the perfect character from one prompt. Free to use. No credit card required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f6f7; --surface:#ffffff; --ink:#111111; --body:#4a4a52; --sub:#77767f;
+    --line:rgba(17,17,17,.10); --line-soft:rgba(17,17,17,.06);
+    --accent:#e5443b; --accent-soft:rgba(229,68,59,.10);
+    --shadow:0 2px 4px rgba(17,17,17,.04),0 12px 40px rgba(17,17,17,.08);
+    --shadow-sm:0 1px 2px rgba(17,17,17,.05),0 4px 14px rgba(17,17,17,.05);
+    --r:22px; --r-sm:14px;
+    --font:'Geist','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+  body{margin:0;font-family:var(--font);background:var(--bg);color:var(--body);font-size:17px;line-height:1.6;letter-spacing:-.01em;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{color:var(--ink);letter-spacing:-.035em;line-height:1.05;margin:0;font-weight:600;}
+  h1{font-size:clamp(40px,6vw,66px);}
+  h2{font-size:clamp(30px,4.2vw,46px);}
+  h3{font-size:clamp(24px,2.6vw,30px);}
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:6px 13px;}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
+  .lede{font-size:clamp(17px,1.9vw,20px);color:var(--body);max-width:54ch;}
+  .micro{font-size:13.5px;color:var(--sub);margin-top:14px;}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;font-family:var(--font);font-weight:600;font-size:16px;border:none;border-radius:999px;padding:14px 26px;cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .12s ease,box-shadow .12s ease;}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(17,17,17,.18);}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none;}
+  .btn.arrow::after{content:"→";font-weight:500;}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(246,246,247,.82);backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--line-soft);}
+  .nav{display:flex;align-items:center;gap:26px;height:66px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);font-size:19px;letter-spacing:-.03em;}
+  .brand img{width:26px;height:26px;}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:16px;}
+  .nav .right a.login{font-size:15px;font-weight:600;color:var(--ink);}
+
+  /* HERO (R7) */
+  .hero{padding:56px 0 12px;text-align:center;}
+  .hero h1{max-width:18ch;margin:18px auto 0;}
+  .hero .lede{margin:18px auto 0;}
+  .paths{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:36px auto 0;max-width:1000px;text-align:left;}
+  .path{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;}
+  .path .thumb{aspect-ratio:16/8;overflow:hidden;background:#eee;}
+  .path .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .path .body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .path .who{font-size:12.5px;font-weight:600;color:var(--sub);text-transform:uppercase;letter-spacing:.07em;}
+  .path p{margin:0;font-size:15.5px;}
+  .path .go{margin-top:auto;padding-top:6px;font-weight:600;color:var(--ink);font-size:15px;}
+  .path .go::after{content:" →";}
+  .path:hover{transform:translateY(-2px);transition:transform .15s ease;}
+  .cta-row{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:30px;flex-wrap:wrap;}
+
+  .logos{text-align:center;color:var(--sub);font-size:14px;margin:52px 0 8px;letter-spacing:.02em;}
+
+  /* feature rows */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0;}
+  .feature.flip .copy{order:2;}
+  .feature .copy h2{margin:16px 0 16px;}
+  .feature .copy p{margin:0 0 18px;}
+  .steps{list-style:none;margin:0 0 24px;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:s;}
+  .steps li{display:flex;gap:14px;align-items:flex-start;font-size:15.5px;}
+  .steps li::before{counter-increment:s;content:counter(s);flex:none;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;font-weight:600;display:grid;place-items:center;margin-top:1px;}
+  .steps b{color:var(--ink);font-weight:600;}
+  .shot{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line-soft);background:#fff;}
+  .shot img{width:100%;display:block;}
+  .src{font-size:12.5px;color:var(--sub);margin-top:10px;}
+  .src a{text-decoration:underline;text-underline-offset:2px;}
+
+  /* prompt box (R9) */
+  .prompt{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow-sm);margin-bottom:16px;}
+  .prompt .tag{font-size:11.5px;color:var(--sub);font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
+  .prompt .txt{font-size:14.5px;color:var(--ink);margin-top:6px;line-height:1.5;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;}
+  .chip{font-size:13.5px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 13px;}
+  .quote{border-left:3px solid var(--ink);padding:4px 0 4px 16px;margin:0 0 22px;font-size:15.5px;color:var(--ink);}
+  .quote small{display:block;color:var(--sub);font-size:13px;margin-top:6px;}
+
+  /* video */
+  .video-sec{padding:40px 0 56px;text-align:center;}
+  .video-sec h2{margin-bottom:12px;}
+  .video-sec p{color:var(--sub);margin:0 auto 26px;max-width:50ch;}
+  .video-frame{position:relative;max-width:900px;margin:0 auto;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line-soft);aspect-ratio:16/9;background:#000;}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-frame.lite{cursor:pointer;background-size:cover;background-position:center;}
+  .video-frame.lite::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.35));}
+  .video-frame .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:rgba(17,17,17,.55);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;}
+  .video-frame.lite:hover .play{background:var(--accent);}
+  .video-frame .play::after{content:"";border-left:24px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px;}
+
+  /* also-in-recraft strip (live vector content, kept, demoted) */
+  .also{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0 40px;}
+  .also .cell{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:22px;box-shadow:var(--shadow-sm);}
+  .also .cell b{color:var(--ink);display:block;font-size:17px;margin-bottom:3px;letter-spacing:-.02em;}
+  .also .cell span{font-size:14.5px;color:var(--sub);}
+
+  .testis{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 48px;}
+  .testi{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:22px;box-shadow:var(--shadow-sm);color:var(--ink);font-size:16px;}
+  .testi small{display:block;color:var(--sub);font-size:13px;margin-top:10px;}
+
+  .contract{border:1px dashed var(--line);border-radius:var(--r-sm);padding:22px;text-align:center;color:var(--sub);font-size:14.5px;background:rgba(255,255,255,.5);}
+  .contract b{color:var(--ink);}
+
+  .final{background:var(--ink);border-radius:28px;color:#fff;text-align:center;padding:64px 24px;margin:40px 0 56px;}
+  .final h2{color:#fff;margin-bottom:14px;}
+  .final p{color:rgba(255,255,255,.66);margin:0 auto 28px;max-width:44ch;}
+  .final .btn{background:#fff;color:var(--ink);}
+  .final .micro{color:rgba(255,255,255,.5);}
+
+  .demo-note{background:#fff;border:1px dashed var(--line);border-radius:var(--r-sm);padding:20px 22px;margin:0 0 48px;box-shadow:var(--shadow-sm);}
+  .demo-note h3{font-size:14px;color:var(--sub);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin:0 0 14px;}
+  .demo-note table{width:100%;border-collapse:collapse;font-size:14px;}
+  .demo-note th{text-align:left;color:var(--sub);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:0 12px 8px 0;}
+  .demo-note td{padding:8px 12px 8px 0;border-top:1px solid var(--line-soft);vertical-align:top;}
+  .demo-note td b{color:var(--ink);} .demo-note a{text-decoration:underline;}
+  .rpill{font-weight:700;color:var(--accent);}
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--sub);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+
+  @media(max-width:820px){
+    body{font-size:16px;}
+    .hero{padding:32px 0 8px;}
+    .hero .lede{font-size:16px;}
+    /* mobile: both paths must sit in the first screen -> compact cards, thumbnails hidden */
+    .paths{grid-template-columns:1fr;gap:10px;margin-top:22px;}
+    .path .thumb{display:none;}
+    .path .body{padding:16px 18px;gap:6px;}
+    .path h3{font-size:22px;}
+    .path p{font-size:14.5px;}
+    .feature{grid-template-columns:1fr;gap:28px;padding:44px 0;}
+    .feature.flip .copy{order:0;}
+    .also,.testis{grid-template-columns:1fr;}
+    .nav .right a.login{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><img src="https://cdn.prod.website-files.com/655727fe69827d9a402de12c/6a0dafb5b8eead82b93ff59f_sign%2040x40%20(1).svg" alt="Recraft">Recraft</a>
+    <div class="right"><a class="login" href="#">Log in</a><a class="btn" href="#">Start for free</a></div>
+  </div>
+</header>
+
+<!-- R7 — HERO: continue BOTH running /pm concepts in the first screen.
+     E (Bloom) headlines: "She imagined it. She made it." / "From logo to launch." / "One idea. A whole brand."
+     F: "GENERATE PERFECT CHARACTER". Each path card repeats its ad's headline near-verbatim. -->
+<section class="hero wrap" aria-labelledby="h1">
+  <span class="eyebrow"><span class="dot"></span>One idea is enough</span>
+  <h1 id="h1">Imagine it. Make it in Recraft.</h1>
+  <p class="lede">Build a brand from logo to launch, or generate the perfect character from a single prompt.</p>
+
+  <div class="paths">
+    <a class="path" href="#brand">
+      <div class="thumb"><img src="https://cdn.prod.website-files.com/655741af3f04e006606d26ad/6a846958b7b443d9d0cbed54_extend-this-image-into-a-horizontal-16-9-compositi.png" alt="Hands holding a product box on a bold brand-colour background, generated in Recraft" loading="eager"></div>
+      <div class="body">
+        <span class="who">For founders &amp; small brands</span>
+        <h3>From logo to launch.</h3>
+        <p>Your logo, product photos and campaign, made in one place and in one consistent style.</p>
+        <span class="go">Build your brand</span>
+      </div>
+    </a>
+    <a class="path" href="#character">
+      <div class="thumb"><img src="https://cdn.prod.website-files.com/655741af3f04e006606d26ad/6a3e65a0210e6d653f464d52_3d-render-sticker-series--same-stylized-anthropomo-p-1600.webp" alt="The same stylised character in six poses, generated in Recraft" loading="eager"></div>
+      <div class="body">
+        <span class="who">For game devs &amp; artists</span>
+        <h3>Generate the perfect character.</h3>
+        <p>Describe your hero once, then get it hand-painted, in pixel art, as a 3D toon or in anime style.</p>
+        <span class="go">Create a character</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="cta-row"><a class="btn arrow" href="#">Start for free</a></div>
+  <p class="micro">Free to use. No credit card required.</p>
+</section>
+
+<!-- A + B continuation (copy from merged PR #1), directly under the hero so those 4 ads still match in the first scroll -->
+<section class="wrap">
+  <div class="also" style="grid-template-columns:1fr 1fr;margin-top:36px">
+    <div class="cell"><b>Blurry logo? Drop a JPG. Get an editable SVG.</b><span>Upload a logo, icon or illustration and Recraft turns it into clean, editable vector paths in seconds.</span></div>
+    <div class="cell"><b>Too small to print? Upscale it to 4K.</b><span>Drop in a small image and get a sharp 4K version back. Headed to print? Export at 300 DPI and CMYK.</span></div>
+  </div>
+</section>
+
+<p class="logos wrap">Trusted by professional designers at <span style="opacity:.6">[live logo strip, unchanged]</span></p>
+
+<!-- R8 — BRAND KIT SECTION: continues E ("Logo. Photos. Ready to launch." / "She built her brand campaign in Recraft").
+     Replaces the abstract "CONSISTENT STYLES WITHOUT TRAINING" block with the same capability told as the ad's journey.
+     Every claim sourced from recraft.ai/blog/from-logo-to-full-brand-kit. -->
+<section class="feature wrap" id="brand">
+  <div class="copy">
+    <span class="eyebrow"><span class="dot"></span>Brand campaign</span>
+    <h2>Logo. Photos.<br>Ready to launch.</h2>
+    <p>One idea becomes a whole brand. Start with the mark, and everything after it looks like it came from the same hand.</p>
+    <ol class="steps">
+      <li><span><b>Design your logo.</b> Generate it as a real SVG with editable paths, sharp from a favicon to a banner.</span></li>
+      <li><span><b>Turn it into your style.</b> Build a reusable style from your logo and lock your exact brand colours as a palette.</span></li>
+      <li><span><b>Make the launch.</b> Generate product photos, mockups, social posts and ad creative that all look like the same brand.</span></li>
+    </ol>
+    <a class="btn arrow" href="#">Build your brand free</a>
+    <p class="micro">Free to use. No credit card required.</p>
+  </div>
+  <div>
+    <div class="shot"><img src="https://cdn.prod.website-files.com/655741af3f04e006606d26ad/6a9713ca587d4d12a5980256_a-full-brand-identity--bird-s-eye-view--like-a-bar%20(2)-p-1600.webp" alt="Brand identity applied to cup, tote bag, card and laptop, generated in Recraft" loading="lazy"></div>
+    <p class="src">Workflow from Recraft's guide <a href="https://www.recraft.ai/blog/from-logo-to-full-brand-kit">From Logo to Full Brand Kit</a>.</p>
+  </div>
+</section>
+
+<section class="video-sec wrap" id="brand-video">
+  <h2>Watch a beauty brand come together</h2>
+  <p>Logo, style and product mockups for a beauty campaign, built step by step in Recraft.</p>
+  <div class="video-frame lite" data-yt="2gaPU65hg5g" data-title="How to Use Recraft for beauty campaign design | Logos, Styles &amp; Mockups" role="button" aria-label="Play: How to Use Recraft for beauty campaign design" style="background-image:url('https://i.ytimg.com/vi/2gaPU65hg5g/hqdefault.jpg')"><div class="play"></div></div>
+</section>
+
+<!-- R9 — CHARACTER SECTION: continues F ("GENERATE PERFECT CHARACTER" + the prompt printed on the creative).
+     Shows the ad's own prompt, the four styles the ad cycles through, the reference-sheet claim
+     (recraft.ai/blog/how-to-build-a-brand-mascot-with-ai) and the game-studio proof (Playgama) moved next to it.
+     The upscale line serves the 4 F ads whose body copy says "Upscale it to 4K" (source: recraft.ai/image-upscaler). -->
+<section class="feature flip wrap" id="character">
+  <div class="copy">
+    <span class="eyebrow"><span class="dot"></span>Characters</span>
+    <h2>Generate the<br>perfect character.</h2>
+    <div class="prompt">
+      <div class="tag">Prompt</div>
+      <div class="txt">Full-body game hero character: a young scavenger courier, patched layered cloak, mechanical left arm with glowing seams, heavy boots, satchel.</div>
+    </div>
+    <div class="chips"><span class="chip">Hand-painted</span><span class="chip">Pixel art</span><span class="chip">3D toon</span><span class="chip">Cel-shaded anime</span></div>
+    <ol class="steps">
+      <li><span><b>Describe your hero once.</b> Same prompt, any style. Try eight directions at once in Exploration Mode.</span></li>
+      <li><span><b>Get a reference sheet.</b> Front, profile, 3/4, back, expressions and colour swatches, so the character stays on-model.</span></li>
+      <li><span><b>Ship it.</b> Covers, sprites, stickers and promo art. Need a small render bigger? Upscale it to 4K.</span></li>
+    </ol>
+    <blockquote class="quote">“Unlike some other image generators like Midjourney, Recraft is highly customizable.”<small>Ivan Korzun, Design Director at Playgama (web games), <a href="https://www.recraft.ai/blog/how-playgama-com-uses-recraft-to-power-global-game-launches">read the case study</a></small></blockquote>
+    <a class="btn arrow" href="#">Create a character free</a>
+    <p class="micro">Free to use. No credit card required.</p>
+  </div>
+  <div>
+    <div class="shot"><img src="https://cdn.prod.website-files.com/655741af3f04e006606d26ad/6a3e6ac3281617097ebf1f46_minimalist-3d-mascot-creature--compact-rounded-bod-p-1600.webp" alt="One character shown from several angles, generated in Recraft" loading="lazy"></div>
+    <p class="src">Character workflow from Recraft's guide <a href="https://www.recraft.ai/blog/how-to-build-a-brand-mascot-with-ai">How to Build a Brand Mascot with AI</a>.</p>
+  </div>
+</section>
+
+<section class="video-sec wrap" id="character-video">
+  <h2>See consistent characters in action</h2>
+  <p>Generate consistent 3D styles, characters and icons, step by step.</p>
+  <div class="video-frame lite" data-yt="5EcTeB2c74Y" data-title="Recraft 3D tutorial: generate consistent 3D Styles, Characters &amp; Icons" role="button" aria-label="Play: Recraft 3D tutorial, consistent characters" style="background-image:url('https://i.ytimg.com/vi/5EcTeB2c74Y/hqdefault.jpg')"><div class="play"></div></div>
+</section>
+
+<!-- Remaining live /pm/main/v1 features, compressed (unchanged claims) -->
+<section class="wrap">
+  <h2 style="text-align:center;font-size:clamp(26px,3.2vw,36px)">Also in Recraft</h2>
+  <div class="also">
+    <div class="cell"><b>Exceptional prompt understanding</b><span>Recraft reads a brief the way a designer would.</span></div>
+    <div class="cell"><b>Built-in aesthetic mastery</b><span>Art direction baked into every scene.</span></div>
+    <div class="cell"><b>Design assets made to impress</b><span>Production-ready graphic design.</span></div>
+  </div>
+  <div class="testis">
+    <div class="testi">“It can generate images directly in vector format. Other AI tools don’t offer this option.”<small>Vincent, Embroidery Designer</small></div>
+    <div class="testi">“What Recraft was able to generate, I said, ‘Wow’ — I think it's one of the reasons I decided to subscribe.”<small>Sebastien T., Graphic Designer</small></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="final">
+    <h2>Ready to make it real?</h2>
+    <p>Start from one idea: a logo, a product, a character. It takes seconds.</p>
+    <a class="btn" href="#">Start for free</a>
+    <p class="micro">Free to use. No credit card required.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="demo-note">
+    <h3>◆ Message-match notes (reviewer overlay, not part of the page)</h3>
+    <table>
+      <tr><th>Section</th><th>Continues which running ad (links to /pm/main/v1)</th><th>Rec</th></tr>
+      <tr><td><b>Hero: “Imagine it. Make it in Recraft.” + two path cards</b></td><td>E (Bloom): <a href="https://www.facebook.com/ads/library/?id=1704747150628253">1704747150628253</a> “From logo to launch.”, <a href="https://www.facebook.com/ads/library/?id=1421671353260483">1421671353260483</a> “She imagined it. She made it.”; F: <a href="https://www.facebook.com/ads/library/?id=28329625143366039">28329625143366039</a> “Generate perfect character”. Live slide 1 is the generic “Tastefully crafted AI image models”.</td><td class="rpill">R7</td></tr>
+      <tr><td><b>“Logo. Photos. Ready to launch.”</b></td><td>E: <a href="https://www.facebook.com/ads/library/?id=1640820400991631">1640820400991631</a> “Logo. Photos. Ready to launch.”, <a href="https://www.facebook.com/ads/library/?id=1437206268331041">1437206268331041</a> “One idea. A whole brand.”, <a href="https://www.facebook.com/ads/library/?id=947845541156772">947845541156772</a> “Her vision. Made real.”</td><td class="rpill">R8</td></tr>
+      <tr><td><b>“Generate the perfect character.”</b></td><td>F: <a href="https://www.facebook.com/ads/library/?id=28329625143366039">28329625143366039</a>, plus <a href="https://www.facebook.com/ads/library/?id=1073753415639987">1073753415639987</a> / <a href="https://www.facebook.com/ads/library/?id=2102480330639721">2102480330639721</a> / <a href="https://www.facebook.com/ads/library/?id=1613375427116854">1613375427116854</a> / <a href="https://www.facebook.com/ads/library/?id=28474028432246514">28474028432246514</a>, which pair the character visual with upscale body copy (hence the upscale line in step 3).</td><td class="rpill">R9</td></tr>
+      <tr><td><b>SVG + Upscale cards under the hero</b></td><td>B: <a href="https://www.facebook.com/ads/library/?id=1614326270237557">1614326270237557</a> (+2); A: <a href="https://www.facebook.com/ads/library/?id=1125157440078039">1125157440078039</a>. Copy from merged PR #1, kept in the first scroll.</td><td>kept</td></tr>
+    </table>
+  </div>
+</div>
+
+<footer class="wrap">
+  <span>© Recraft · built /pm/main/v1 concept (cta-scout)</span>
+  <span>Assets: recraft.ai/blog · youtube.com/@Recraftai</span>
+</footer>
+
+<script>
+  document.querySelectorAll('.video-frame.lite').forEach(function(el){
+    el.addEventListener('click', function(){
+      var id=el.getAttribute('data-yt'), t=el.getAttribute('data-title');
+      el.classList.remove('lite'); el.style.backgroundImage='none';
+      el.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" title="'+t+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    });
+  });
+</script>
+</body>
+</html>

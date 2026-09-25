@@ -7,3 +7,8 @@ Copy source-of-truth for Recraft's CTA landing pages (https://www.recraft.ai/ an
 - `recraft/home/copy.md` — https://www.recraft.ai/ (homepage, reference)
 
 The `main` branch holds an unmodified baseline transcribed from the live pages. Proposed copy changes arrive as pull requests from `cta-scout/<slug>` branches, each tied to a specific running Meta ad creative. Pricing, offer terms, checkout and quiz content are out of scope for these PRs.
+
+## Built pages
+- `pm/index.html` — designed, self-contained build of https://recraft.ai/pm/ (house style: Geist, #f6f6f7, #111 ink, black pill CTAs).
+- `pm/main/v1/index.html` — designed build of https://www.recraft.ai/pm/main/v1.
+Assets are real Recraft images (recraft.ai/blog CDN) and @Recraftai YouTube videos (youtube-nocookie embeds). Pricing tables are shown only as an "unchanged" marker.

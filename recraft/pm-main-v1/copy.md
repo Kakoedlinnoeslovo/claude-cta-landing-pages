@@ -1,7 +1,8 @@
 # Recraft paid landing page — /pm/main/v1 (generic LP)
 
 Live URL: https://www.recraft.ai/pm/main/v1
-Receives Meta traffic from: "Upscale any image to 4K", "Drop a JPG. Get an editable SVG.", "Create it in Recraft" (one prompt) and "Can't find the icon? Create it." creatives.
+Receives Meta traffic from (as of the latest cta-scout run): "Bloom" brand-campaign creatives (5 ads), "GENERATE PERFECT CHARACTER" creatives (5 ads), "Drop a JPG. Get an editable SVG." (3 ads) and "Upscale any image to 4K" (1 ad). The "Create it in Recraft" and icon creatives are no longer running.
+Built page: `pm/main/v1/index.html`.
 Section order below mirrors the live page top-to-bottom (desktop; mobile header CTA reads "Start free").
 
 ---
@@ -9,22 +10,17 @@ Section order below mirrors the live page top-to-bottom (desktop; mobile header 
 ## Header
 - CTA button: "Start for free" (mobile: "Start free")
 
-## Hero carousel (3 slides, in display order)
+## Hero (R7 — replaces the carousel's first screen)
+- Same hero as /pm: eyebrow "One idea is enough" / headline "IMAGINE IT. / MAKE IT IN RECRAFT." / sub "Build a brand from logo to launch, or generate the perfect character from a single prompt."
+- Path cards: "From logo to launch." (For founders & small brands) and "Generate the perfect character." (For game devs & artists), copy as in recraft/pm/copy.md
+- CTA: "Start for free" · Microcopy: "Free to use. No credit card required."
 
-### Slide 1
-- Headline: "DROP A JPG. / GET AN EDITABLE SVG."
-- Sub: "Upload a blurry logo, icon or illustration and Recraft turns it into clean, editable vector paths in seconds. No file yet? Describe it and generate it as an SVG."
-- CTA: "Start for free"
+## Directly under the hero (kept from merged PR #1, shown as two cards instead of carousel slides 1–2)
+- "Blurry logo? Drop a JPG. Get an editable SVG." / "Upload a logo, icon or illustration and Recraft turns it into clean, editable vector paths in seconds."
+- "Too small to print? Upscale it to 4K." / "Drop in a small image and get a sharp 4K version back. Headed to print? Export at 300 DPI and CMYK."
 
-### Slide 2
-- Headline: "TOO SMALL TO PRINT? / UPSCALE IT TO 4K."
-- Sub: "Drop in a small image and get a sharp 4K version back in seconds. Headed to print? Export at 300 DPI and CMYK."
-- CTA: "Start for free"
-
-### Slide 3
-- Headline: "TASTEFULLY CRAFTED / AI IMAGE MODELS"
-- Sub: "Every generation comes out art-directed, atmospheric, and stylistically alive, because good images aren't just accurate. They're evocative."
-- CTA: "Start for free"
+## Brand campaign (R8) and Characters (R9)
+- Same copy as recraft/pm/copy.md sections R8 and R9, placed after the logo strip.
 
 ## Logo strip
 - Label: "Trusted by professional designers at the most innovative companies"
@@ -65,8 +61,8 @@ Section order below mirrors the live page top-to-bottom (desktop; mobile header 
 - Microcopy: "Free to use. No credit card required."
 
 ## Final CTA
-- Headline: "Ready to start creating?"
-- Sub: "Start from a prompt or upload a file you already have. It takes seconds."
+- Headline (R-final): "Ready to make it real?"
+- Sub: "Start from one idea: a logo, a product, a character. It takes seconds."
 - CTA: "Start for free"
 - Microcopy: "Free to use. No credit card required."
 
