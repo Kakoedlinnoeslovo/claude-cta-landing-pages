@@ -1,6 +1,6 @@
 # Recraft CTA message-match brief (today's run)
 
-**PR opened this run:** (this PR) (branch `cta-scout/brand-and-character-match`, not merged, waiting for human review)
+**PR opened this run:** https://github.com/Kakoedlinnoeslovo/claude-cta-landing-pages/pull/4 (branch `cta-scout/brand-and-character-match`, not merged, waiting for human review)
 
 ## What changed since yesterday
 - **The creative mix changed a lot.** Recraft launched two new concepts yesterday: **E, the "Bloom" brand campaign** and **F, "Generate perfect character"**. Together they make up **20 of the 24 active ads**. They link to both `/pm` and `/pm/main/v1`.
